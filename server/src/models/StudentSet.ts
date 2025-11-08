@@ -32,15 +32,18 @@ export class StudentSet {
   // Update student by CPF
   updateStudent(updatedStudent: Student): Student {
     const cleanCPF = updatedStudent.getCleanCPF();
-    const existingStudentIndex = this.students.findIndex(s => s.getCleanCPF() === cleanCPF);
+    const existingStudent = this.findStudentByCPF(cleanCPF);
     
-    if (existingStudentIndex === -1) {
+    if (!existingStudent) {
       throw new Error('Student not found');
     }
 
-    // Replace the existing student with the updated one
-    this.students[existingStudentIndex] = updatedStudent;
-    return updatedStudent;
+    // Update fields of the existing student object
+    existingStudent.name = updatedStudent.name;
+    existingStudent.email = updatedStudent.email;
+    // CPF should not be updated as it's the identifier
+    
+    return existingStudent;
   }
 
   // Find student by CPF

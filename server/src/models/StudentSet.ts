@@ -38,6 +38,7 @@ export class StudentSet {
     // Update fields of the existing student object
     existingStudent.name = updatedStudent.name;
     existingStudent.email = updatedStudent.email;
+    existingStudent.evaluations = updatedStudent.evaluations;
     // CPF should not be updated as it's the identifier
     
     return existingStudent;

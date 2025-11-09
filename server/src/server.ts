@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import { StudentSet } from './models/StudentSet';
 import { Student } from './models/Student';
+import { Evaluation } from './models/Evaluation';
 
 const app = express();
 const PORT = 3005;
@@ -12,6 +13,35 @@ app.use(express.json());
 
 // In-memory student storage (in production, use a database)
 const studentSet = new StudentSet();
+
+// Add some sample data for testing
+const initializeSampleData = () => {
+  try {
+    // Sample student 1 with evaluations
+    const student1 = new Student('João Silva', '123.456.789-01', 'joao@email.com', [
+      new Evaluation('Requirements', 'MA'),
+      new Evaluation('Design', 'MPA'),
+      new Evaluation('Tests', 'MANA')
+    ]);
+    
+    // Sample student 2 with evaluations  
+    const student2 = new Student('Maria Santos', '987.654.321-09', 'maria@email.com', [
+      new Evaluation('Requirements', 'MPA'),
+      new Evaluation('Configuration Management', 'MA'),
+      new Evaluation('Project Management', 'MA')
+    ]);
+    
+    studentSet.addStudent(student1);
+    studentSet.addStudent(student2);
+    
+    console.log('Sample data initialized');
+  } catch (error) {
+    console.log('Sample data already exists or error:', (error as Error).message);
+  }
+};
+
+// Initialize sample data on server start
+initializeSampleData();
 
 // Helper function to clean CPF
 const cleanCPF = (cpf: string): string => {
@@ -33,13 +63,18 @@ app.get('/api/students', (req: Request, res: Response) => {
 // POST /api/students - Add a new student
 app.post('/api/students', (req: Request, res: Response) => {
   try {
-    const { name, cpf, email } = req.body;
+    const { name, cpf, email, evaluations } = req.body;
     
     if (!name || !cpf || !email) {
       return res.status(400).json({ error: 'Name, CPF, and email are required' });
     }
 
-    const student = new Student(name, cpf, email);
+    // Convert evaluations from JSON to Evaluation objects if provided
+    const evaluationObjects = evaluations 
+      ? evaluations.map((evaluation: any) => Evaluation.fromJSON(evaluation))
+      : [];
+
+    const student = new Student(name, cpf, email, evaluationObjects);
     const addedStudent = studentSet.addStudent(student);
     res.status(201).json(addedStudent.toJSON());
   } catch (error) {
@@ -51,14 +86,19 @@ app.post('/api/students', (req: Request, res: Response) => {
 app.put('/api/students/:cpf', (req: Request, res: Response) => {
   try {
     const { cpf } = req.params;
-    const { name, email } = req.body;
+    const { name, email, evaluations } = req.body;
     
     if (!name || !email) {
       return res.status(400).json({ error: 'Name and email are required for update' });
     }
     
+    // Convert evaluations from JSON to Evaluation objects if provided
+    const evaluationObjects = evaluations 
+      ? evaluations.map((evaluation: any) => Evaluation.fromJSON(evaluation))
+      : [];
+    
     // Create a complete Student object for update (cpf will be cleaned in Student constructor)
-    const updatedStudent = new Student(name, cpf, email);
+    const updatedStudent = new Student(name, cpf, email, evaluationObjects);
     const result = studentSet.updateStudent(updatedStudent);
     res.json(result.toJSON());
   } catch (error) {

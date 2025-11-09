@@ -3,13 +3,17 @@ import { Student } from './types/Student';
 import { studentService } from './services/StudentService';
 import StudentList from './components/StudentList';
 import StudentForm from './components/StudentForm';
+import Evaluations from './components/Evaluations';
 import './App.css';
+
+type TabType = 'students' | 'evaluations';
 
 const App: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
+  const [activeTab, setActiveTab] = useState<TabType>('students');
 
   // Load students on component mount
   useEffect(() => {
@@ -69,21 +73,48 @@ const App: React.FC = () => {
           </div>
         )}
 
-        <StudentForm
-          onStudentAdded={handleStudentAdded}
-          onStudentUpdated={handleStudentUpdated}
-          onError={handleError}
-          onCancel={editingStudent ? handleCancelEdit : undefined}
-          editingStudent={editingStudent}
-        />
+        {/* Tab Navigation */}
+        <div className="tab-navigation">
+          <button
+            className={`tab-button ${activeTab === 'students' ? 'active' : ''}`}
+            onClick={() => setActiveTab('students')}
+          >
+            Students
+          </button>
+          <button
+            className={`tab-button ${activeTab === 'evaluations' ? 'active' : ''}`}
+            onClick={() => setActiveTab('evaluations')}
+          >
+            Evaluations
+          </button>
+        </div>
 
-        <StudentList
-          students={students}
-          onStudentDeleted={handleStudentDeleted}
-          onEditStudent={handleEditClick}
-          onError={handleError}
-          loading={loading}
-        />
+        {/* Tab Content */}
+        <div className="tab-content">
+          {activeTab === 'students' && (
+            <>
+              <StudentForm
+                onStudentAdded={handleStudentAdded}
+                onStudentUpdated={handleStudentUpdated}
+                onError={handleError}
+                onCancel={editingStudent ? handleCancelEdit : undefined}
+                editingStudent={editingStudent}
+              />
+
+              <StudentList
+                students={students}
+                onStudentDeleted={handleStudentDeleted}
+                onEditStudent={handleEditClick}
+                onError={handleError}
+                loading={loading}
+              />
+            </>
+          )}
+
+          {activeTab === 'evaluations' && (
+            <Evaluations students={students} />
+          )}
+        </div>
       </main>
     </div>
   );

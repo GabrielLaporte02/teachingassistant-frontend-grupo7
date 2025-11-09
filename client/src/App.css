@@ -280,3 +280,95 @@ tbody tr:last-child td {
     font-size: 2rem;
   }
 }
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  background: white;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b7280;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-button:hover {
+  background-color: #f8fafc;
+  color: #374151;
+}
+
+.tab-button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  background-color: #f8fafc;
+}
+
+.tab-content {
+  background: white;
+  border-radius: 0 0 8px 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+/* Evaluations Table */
+.evaluations-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.evaluations-table th,
+.evaluations-table td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.evaluations-table th {
+  background-color: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.evaluations-table th:first-child {
+  text-align: left;
+  background-color: #667eea;
+  color: white;
+}
+
+.grade-cell {
+  min-width: 80px;
+  font-weight: 500;
+}
+
+.grade-MANA {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.grade-MPA {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.grade-MA {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.no-grade {
+  color: #9ca3af;
+  font-style: italic;
+}

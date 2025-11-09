@@ -9,6 +9,11 @@
       "name": "Maria Modularidade",
       "cpf": "22222222222",
       "email": "mm@cin.ufpe.br"
+    },
+    {
+      "name": "João Elegância",
+      "cpf": "33333333333",
+      "email": "je@cin.ufpe.br"
     }
   ],
   "classes": [
@@ -19,7 +24,32 @@
       "enrollments": [
         {
           "studentCPF": "11111111111",
-          "evaluations": []
+          "evaluations": [
+            {
+              "goal": "Requirements",
+              "grade": "MPA"
+            },
+            {
+              "goal": "Configuration Management",
+              "grade": "MA"
+            },
+            {
+              "goal": "Project Management",
+              "grade": "MANA"
+            },
+            {
+              "goal": "Design",
+              "grade": "MA"
+            },
+            {
+              "goal": "Tests",
+              "grade": "MPA"
+            },
+            {
+              "goal": "Refactoring",
+              "grade": "MA"
+            }
+          ]
         }
       ]
     },
@@ -30,6 +60,35 @@
       "enrollments": [
         {
           "studentCPF": "22222222222",
+          "evaluations": [
+            {
+              "goal": "Requirements",
+              "grade": "MPA"
+            },
+            {
+              "goal": "Configuration Management",
+              "grade": "MA"
+            },
+            {
+              "goal": "Project Management",
+              "grade": "MPA"
+            },
+            {
+              "goal": "Design",
+              "grade": "MA"
+            },
+            {
+              "goal": "Refactoring",
+              "grade": "MA"
+            },
+            {
+              "goal": "Tests",
+              "grade": "MA"
+            }
+          ]
+        },
+        {
+          "studentCPF": "33333333333",
           "evaluations": []
         }
       ]

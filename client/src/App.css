@@ -602,3 +602,155 @@ tbody tr:last-child td {
 .add-evaluation-btn:hover {
   background-color: #2563eb;
 }
+
+/* Enhanced Evaluation Matrix Styles */
+.class-selection-container {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.class-selection-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.class-select {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.class-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.evaluation-table-container {
+  margin-top: 2rem;
+}
+
+.evaluation-table-container h4 {
+  margin-bottom: 1rem;
+  color: #374151;
+  font-size: 1.1rem;
+}
+
+.evaluation-matrix {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.evaluation-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 800px;
+}
+
+.student-name-header {
+  background-color: #1f2937;
+  color: white;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #374151;
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  min-width: 200px;
+}
+
+.goal-header {
+  background-color: #3b82f6;
+  color: white;
+  padding: 12px 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #2563eb;
+  min-width: 120px;
+  writing-mode: horizontal-tb;
+}
+
+.student-row:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.student-row:hover {
+  background-color: #f3f4f6;
+}
+
+.student-name-cell {
+  background-color: #f8fafc;
+  padding: 12px 16px;
+  font-weight: 500;
+  border: 1px solid #e5e7eb;
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  min-width: 200px;
+}
+
+.student-row:nth-child(even) .student-name-cell {
+  background-color: #f1f5f9;
+}
+
+.student-row:hover .student-name-cell {
+  background-color: #e2e8f0;
+}
+
+.evaluation-cell {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #e5e7eb;
+  min-width: 120px;
+}
+
+.evaluation-select {
+  width: 100%;
+  max-width: 100px;
+  padding: 6px 8px;
+  border: 2px solid #e5e7eb;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.evaluation-select:hover {
+  border-color: #3b82f6;
+}
+
+.evaluation-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.evaluation-select option[value="MANA"] {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.evaluation-select option[value="MPA"] {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.evaluation-select option[value="MA"] {
+  background-color: #d1fae5;
+  color: #065f46;
+}

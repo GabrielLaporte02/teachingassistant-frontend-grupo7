@@ -181,8 +181,6 @@ const App: React.FC = () => {
 
           {activeTab === 'evaluations' && (
             <Evaluations 
-              selectedClass={selectedClass}
-              onClassesUpdate={loadClasses}
               onError={handleError}
             />
           )}

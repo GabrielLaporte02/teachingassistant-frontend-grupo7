@@ -8,8 +8,13 @@ import StudentForm from './components/StudentForm';
 import Evaluations from './components/Evaluations';
 import Classes from './components/Classes';
 import './App.css';
+import ClassStatusPage from './components/ClassStatusPage';
+import UpdateEvaluationPage from './components/UpdateEvaluationPage';
+import MyStatusPage from './components/MyStatusPage';
 
-type TabType = 'students' | 'evaluations' | 'classes';
+
+
+type TabType = 'students' | 'evaluations' | 'classes' | 'update-eval' | 'my-status';
 
 const App: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -143,6 +148,21 @@ const App: React.FC = () => {
           >
             Classes
           </button>
+          <button
+            className={`tab-button ${activeTab === 'update-eval' ? 'active' : ''}`}
+            onClick={() => setActiveTab('update-eval')}
+          >
+          Registrar Avaliação
+
+          </button>
+          <button
+            className={`tab-button ${activeTab === 'my-status' ? 'active' : ''}`}
+            onClick={() => setActiveTab('my-status')}
+          >
+           Meu Status
+          </button>
+
+
         </div>
 
         {/* Tab Content */}
@@ -204,14 +224,21 @@ const App: React.FC = () => {
           )}
 
           {activeTab === 'classes' && (
-            <Classes
-              classes={classes}
-              onClassAdded={handleClassAdded}
-              onClassUpdated={handleClassUpdated}
-              onClassDeleted={handleClassDeleted}
-              onError={handleError}
-            />
-          )}
+    <div>
+      {/* Página do Cenário 1 */}
+      <ClassStatusPage />
+    </div>
+         )}
+
+         {activeTab === 'update-eval' && (
+    <UpdateEvaluationPage />
+)}
+
+         {activeTab === 'my-status' && (
+    <MyStatusPage />
+)}
+
+
         </div>
       </main>
     </div>

@@ -130,7 +130,17 @@ const App: React.FC = () => {
 
           {activeTab === 'students' && (
             <>
-              {}
+              <StudentForm onStudentAdded={loadStudents} onStudentUpdated={loadStudents} onError={setError} editingStudent={editingStudent} />
+              {loading && <p>Loading students...</p>}
+              {!loading && (
+                <StudentList
+                  students={students}
+                  onStudentDeleted={loadStudents}
+                  onEditStudent={setEditingStudent}
+                  onError={setError}
+                  loading={loading}
+                />
+              )}
             </>
           )}
 

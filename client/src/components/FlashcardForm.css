@@ -43,13 +43,13 @@
 }
 
 /* Agrupamento dos campos do formulário */
-.form-group {
+.form-container .form-group {
   margin-bottom: 20px;
   position: relative;
 }
 
 /* Label dos campos */
-.form-group label {
+.form-container .form-group label {
   display: block;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
@@ -58,7 +58,7 @@
 }
 
 /* Estilos dos inputs */
-.form-group input {
+.form-container .form-group input {
   width: 100%;
   padding: 14px 16px;
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -72,12 +72,12 @@
 }
 
 /* Placeholder dos inputs */
-.form-group input::placeholder {
+.form-container .form-group input::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
 /* Estado focus dos inputs */
-.form-group input:focus {
+.form-container .form-group input:focus {
   outline: none;
   border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.15);
@@ -95,7 +95,7 @@
 }
 
 /* Contador visível ao focar */
-.form-group input:focus ~ .char-count {
+.form-container .form-group input:focus ~ .char-count {
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -144,7 +144,7 @@
     font-size: 18px;
   }
 
-  .form-group input {
+  .form-container .form-group input {
     padding: 12px 14px;
     font-size: 14px;
   }

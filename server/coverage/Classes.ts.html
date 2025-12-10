@@ -190,8 +190,8 @@
 <a name='L125'></a><a href='#L125'>125</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -318,12 +318,12 @@ export class Classes {
   private classes: Class[] = [];
 &nbsp;
   constructor() {
-    // Classes management is independent of persistence
+    
   }
 &nbsp;
-  // Add a new class
+  
 <span class="fstat-no" title="function not covered" >  addClass(</span>classObj: Class): Class {
-    // Check if class already exists (same topic, year, semester)
+    
 <span class="cstat-no" title="statement not covered" >    if (this.findClassById(classObj.getClassId())) {</span>
 <span class="cstat-no" title="statement not covered" >      throw new Error('Class with same topic, year, and semester already exists');</span>
     }
@@ -332,7 +332,7 @@ export class Classes {
 <span class="cstat-no" title="statement not covered" >    return classObj;</span>
   }
 &nbsp;
-  // Remove class by ID
+  
 <span class="fstat-no" title="function not covered" >  removeClass(</span>classId: string): boolean {
     const index = <span class="cstat-no" title="statement not covered" >this.classes.findIndex(<span class="fstat-no" title="function not covered" >c </span>=&gt; <span class="cstat-no" title="statement not covered" >c.getClassId() === classId)</span>;</span>
     
@@ -344,7 +344,7 @@ export class Classes {
 <span class="cstat-no" title="statement not covered" >    return true;</span>
   }
 &nbsp;
-  // Update class
+  
 <span class="fstat-no" title="function not covered" >  updateClass(</span>updatedClass: Class): Class {
     const existingClass = <span class="cstat-no" title="statement not covered" >this.findClassById(updatedClass.getClassId());</span>
     
@@ -352,40 +352,40 @@ export class Classes {
 <span class="cstat-no" title="statement not covered" >      throw new Error('Class not found');</span>
     }
 &nbsp;
-    // Update basic fields of the existing class object
+    
 <span class="cstat-no" title="statement not covered" >    existingClass.setTopic(updatedClass.getTopic());</span>
 <span class="cstat-no" title="statement not covered" >    existingClass.setSemester(updatedClass.getSemester());</span>
 <span class="cstat-no" title="statement not covered" >    existingClass.setYear(updatedClass.getYear());</span>
     
-    // Update enrollments: merge existing with updated enrollments
+    
     const updatedEnrollments = <span class="cstat-no" title="statement not covered" >updatedClass.getEnrollments();</span>
     const existingEnrollments = <span class="cstat-no" title="statement not covered" >existingClass.getEnrollments();</span>
     
-    // Process each updated enrollment
+   
 <span class="cstat-no" title="statement not covered" >    updatedEnrollments.forEach(<span class="fstat-no" title="function not covered" >updatedEnrollment </span>=&gt; {</span>
       const studentCPF = <span class="cstat-no" title="statement not covered" >updatedEnrollment.getStudent().getCPF();</span>
       const existingEnrollment = <span class="cstat-no" title="statement not covered" >existingClass.findEnrollmentByStudentCPF(studentCPF);</span>
       
 <span class="cstat-no" title="statement not covered" >      if (existingEnrollment) {</span>
-        // Update existing enrollment's evaluations
+        
         const updatedEvaluations = <span class="cstat-no" title="statement not covered" >updatedEnrollment.getEvaluations();</span>
 <span class="cstat-no" title="statement not covered" >        updatedEvaluations.forEach(<span class="fstat-no" title="function not covered" >evaluation </span>=&gt; {</span>
 <span class="cstat-no" title="statement not covered" >          existingEnrollment.addOrUpdateEvaluation(evaluation.getGoal(), evaluation.getGrade());</span>
         });
       } else {
-        // Add new enrollment that doesn't exist yet
+        
 <span class="cstat-no" title="statement not covered" >        try {</span>
 <span class="cstat-no" title="statement not covered" >          existingClass.addEnrollment(updatedEnrollment.getStudent());</span>
           const newEnrollment = <span class="cstat-no" title="statement not covered" >existingClass.findEnrollmentByStudentCPF(studentCPF);</span>
 <span class="cstat-no" title="statement not covered" >          if (newEnrollment) {</span>
-            // Copy over evaluations from updated enrollment
+            
             const updatedEvaluations = <span class="cstat-no" title="statement not covered" >updatedEnrollment.getEvaluations();</span>
 <span class="cstat-no" title="statement not covered" >            updatedEvaluations.forEach(<span class="fstat-no" title="function not covered" >evaluation </span>=&gt; {</span>
 <span class="cstat-no" title="statement not covered" >              newEnrollment.addOrUpdateEvaluation(evaluation.getGoal(), evaluation.getGrade());</span>
             });
           }
         } catch (error) {
-          // Enrollment already exists, this shouldn't happen but handle gracefully
+          
 <span class="cstat-no" title="statement not covered" >          console.warn(`Could not add enrollment for student ${studentCPF}: ${error}`);</span>
         }
       }
@@ -394,32 +394,32 @@ export class Classes {
 <span class="cstat-no" title="statement not covered" >    return existingClass;</span>
   }
 &nbsp;
-  // Find class by ID
+&nbsp;
 <span class="fstat-no" title="function not covered" >  findClassById(</span>classId: string): Class | undefined {
 <span class="cstat-no" title="statement not covered" >    return this.classes.find(<span class="fstat-no" title="function not covered" >c </span>=&gt; <span class="cstat-no" title="statement not covered" >c.getClassId() === classId)</span>;</span>
   }
 &nbsp;
-  // Get all classes
+  
   getAllClasses(): Class[] {
-    return [...this.classes]; // Return a copy to prevent external modification
+    return [...this.classes]; 
   }
 &nbsp;
-  // Get classes count
+  
 <span class="fstat-no" title="function not covered" >  getCount(</span>): number {
 <span class="cstat-no" title="statement not covered" >    return this.classes.length;</span>
   }
 &nbsp;
-  // Find classes by year
+  
 <span class="fstat-no" title="function not covered" >  findClassesByYear(</span>year: number): Class[] {
 <span class="cstat-no" title="statement not covered" >    return this.classes.filter(<span class="fstat-no" title="function not covered" >c </span>=&gt; <span class="cstat-no" title="statement not covered" >c.getYear() === year)</span>;</span>
   }
 &nbsp;
-  // Find classes by topic
+  
 <span class="fstat-no" title="function not covered" >  findClassesByTopic(</span>topic: string): Class[] {
 <span class="cstat-no" title="statement not covered" >    return this.classes.filter(<span class="fstat-no" title="function not covered" >c </span>=&gt; <span class="cstat-no" title="statement not covered" >c.getTopic().toLowerCase().includes(topic.toLowerCase()))</span>;</span>
   }
 &nbsp;
-  // Get all students enrolled in any class
+  
 <span class="fstat-no" title="function not covered" >  getAllEnrolledStudents(</span>): Student[] {
     const students: Student[] = <span class="cstat-no" title="statement not covered" >[];</span>
     const seenCPFs = <span class="cstat-no" title="statement not covered" >new Set&lt;string&gt;();</span>
@@ -442,7 +442,7 @@ export class Classes {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-24T12:31:44.523Z
+                at 2025-12-10T09:02:46.129Z
             </div>
         <script src="prettify.js"></script>
         <script>

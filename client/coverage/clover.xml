@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1765354444298" clover="3.2.0">
+  <project timestamp="1765354444299" name="All files">
+    <metrics statements="46" coveredstatements="46" conditionals="22" coveredconditionals="20" methods="7" coveredmethods="7" elements="75" coveredelements="73" complexity="0" loc="46" ncloc="46" packages="2" files="2" classes="2"/>
+    <package name="components">
+      <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="8" methods="4" coveredmethods="4"/>
+      <file name="FlashcardForm.tsx" path="/home/galm/Documentos/teachingassistant-frontend-grupo7/client/src/components/FlashcardForm.tsx">
+        <metrics statements="15" coveredstatements="15" conditionals="10" coveredconditionals="8" methods="4" coveredmethods="4"/>
+        <line num="6" count="489" type="stmt"/>
+        <line num="9" count="489" type="stmt"/>
+        <line num="12" count="489" type="stmt"/>
+        <line num="15" count="489" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="17" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="27" count="489" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="489" type="stmt"/>
+        <line num="42" count="324" type="stmt"/>
+        <line num="57" count="142" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="31" coveredstatements="31" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
+      <file name="FlashcardService.ts" path="/home/galm/Documentos/teachingassistant-frontend-grupo7/client/src/services/FlashcardService.ts">
+        <metrics statements="31" coveredstatements="31" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
+        <line num="2" count="13" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="28" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="44" count="5" type="stmt"/>
+        <line num="47" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
